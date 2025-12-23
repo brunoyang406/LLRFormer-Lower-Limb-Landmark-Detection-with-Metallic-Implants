@@ -7,12 +7,9 @@
 
 ## Features
 
-- **Medical Image Specialized**: Optimized keypoint detection model for full-length lower limb radiographs
+- **Medical Image Specialized**: Optimized Landmark Detection model for full-length lower limb radiographs
 - **High Precision Detection**: Supports accurate detection of 36 keypoints (hip, femur, knee, tibia, ankle)
 - **Cross-Self Attention**: 6-layer cross-self attention Transformer for enhanced feature interaction
-- **Region-Weighted Loss**: Differentiated weights for different body regions to improve detection accuracy
-- **Medical Data Augmentation**: Medical image-specific data augmentation strategies
-- **Flexible Configuration**: YAML-based configuration files for easy hyperparameter tuning
 
 ## Architecture
 
@@ -192,26 +189,6 @@ The model is evaluated using the following metrics:
 - **AUC**: Area Under Curve
 - **MPJPE**: Mean Per Joint Position Error
 
-## Key Features
-
-### 1. Data Augmentation
-
-- **Medical Image Augmentation**: Specific augmentation strategies for X-ray images
-- **Mixup/CutMix**: Mixed data augmentation
-- **Adaptive Adjustment**: Maintains consistency of keypoint annotations
-
-### 2. Loss Function
-
-- **Weighted MSE Loss**: Different weights for different body regions
-  - Hip region: 1.5×
-  - Femur/Tibia region: 2.0×
-  - Knee region: 1.0×
-  - Ankle region: 1.3×
-
-### 3. Learning Rate Scheduling
-
-- **ReduceLROnPlateau**: Adaptive learning rate adjustment based on validation metrics
-- **MultiStepLR**: Multi-stage learning rate decay (optional)
 
 ## Dataset Statistics
 
@@ -224,8 +201,6 @@ The model is evaluated using the following metrics:
 
 The project also includes the following utility tools:
 
-- `tools/check_kpt_order.py`: Check keypoint order
-- `tools/fix_kpt_order.py`: Fix keypoint order
 - `tools/export_predictions.py`: Export prediction results
 - `visualization/`: Attention visualization and keypoint visualization tools
 
