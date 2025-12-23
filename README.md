@@ -24,7 +24,6 @@ LLRFormer adopts a two-stage architecture:
 ### Architecture Specifications
 
 - **Input Size**: 384×1152 (width×height)
-- **Heatmap Size**: 96×288 (1/4 of input size)
 - **Number of Keypoints**: 36
 - **Feature Dimension**: 192
 - **Attention Heads**: 8
@@ -97,6 +96,9 @@ cd ../..
 
 ### Data Preparation
 
+We use the full-length lower-limb radiograph dataset (LLRFormer Keypoint Dataset), which is publicly available. The dataset includes training, validation, test, and external test sets, along with corresponding JSON annotation files. It can be accessed at Hugging Face:
+https://huggingface.co/datasets/YANG1568279/full_length_lower_limb_radiographs_with_metallic_implants
+
 Organize your dataset in the following structure:
 
 ```
@@ -112,7 +114,7 @@ data/
     └── annotations/     # Test annotations
 ```
 
-**Annotation Format**: Use LabelMe JSON format. Each image should have a corresponding JSON annotation file with the same base name. Annotation files should contain 36 keypoints, which can be `point` or `circle` type.
+**Annotation Format**: Use xanylabeling JSON format. Each image should have a corresponding JSON annotation file with the same base name. Annotation files should contain 36 keypoints, which can be `point` or `circle` type.
 
 For detailed data preparation instructions, please refer to [data/README.md](data/README.md).
 
@@ -154,7 +156,6 @@ DATASET:
   TRAIN_SET: 'train'
   TEST_SET: 'val'
   IMAGE_SIZE: [384, 1152]
-  HEATMAP_SIZE: [96, 288]
 ```
 
 **Model Configuration**:
@@ -235,7 +236,7 @@ This project is licensed under the [LICENSE](LICENSE) license.
 ## Acknowledgments
 
 - [HRNet](https://github.com/HRNet/HRNet-Image-Classification): For the backbone network
-- [LabelMe](https://github.com/wkentaro/labelme): For data annotation
+- [xanylabeling](https://github.com/CVHub520/xanylabeling): For data annotation
 
 ## Contact
 
